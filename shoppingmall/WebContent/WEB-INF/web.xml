@@ -9,4 +9,54 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  <filter>
+      <filter-name>characterEncodingFilter</filter-name>
+      <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+      <init-param>
+          <param-name>encoding</param-name>
+          <param-value>UTF-8</param-value>
+      </init-param>
+      
+      <init-param>
+          <param-name>forceEncoding</param-name>
+          <param-value>true</param-value>
+      </init-param>
+  </filter>
+  
+  <filter-mapping>
+      <filter-name>characterEncodingFilter</filter-name>
+      <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <listener>
+      <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  
+  <context-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>
+          /WEB-INF/applicationConfig/appShop.xml
+      </param-value>
+  </context-param>
+  
+  <servlet>
+      <servlet-name>dispatcherServlet</servlet-name>
+      <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+      <init-param>
+          <param-name>contextConfigLocation</param-name>
+          <param-value>
+              /WEB-INF/servletConfig/simpleUrl.xml   <!-- 화면 요청값에 대한 설정 -->
+              /WEB-INF/servletConfig/controller.xml  <!-- 컨트롤러 설정 -->            
+          </param-value>
+      </init-param>
+  </servlet>
+  
+  <servlet-mapping>
+      <servlet-name>dispatcherServlet</servlet-name>
+      <url-pattern>*.ck</url-pattern>
+  </servlet-mapping>
+  
+  
+  
 </web-app>
