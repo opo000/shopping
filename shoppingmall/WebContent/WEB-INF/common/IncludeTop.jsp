@@ -27,27 +27,27 @@
 <div id="Header">
 	<div id="Logo">
 		<div id="LogoContent">
-			<a href="index.action"><img src="images/page/logo-topbar.gif" style="width:150px;hieght:60px"/></a>
+			<a href="index.action"><img src="images/page/logo-topbar.gif" style="width:200px;hieght:80px"/></a>
 		</div>
 	</div>
 
 	<div id="Menu">
 		<div id="MenuContent">
-			<c:choose>
-				<c:when test="${USER_KEY.u_id != null}">
-					<a href="">
-						<img align="middle" name="img_cart" src="images/page/cart.gif" />
-					</a>
-					<img align="middle" src="images/page/separator.gif" />
-					<a href="">Order List</a>
-					<img align="middle" src="images/page/separator.gif" />
-					<a href="logout.action">Sign Out</a>
-				</c:when>
-				<c:when test="${USER_KEY.u_id == null}">
-					<a href="loginForm.action">Sign In</a>
-				</c:when>  
-			</c:choose>
 			
+			<a href="">
+				<img align="middle" name="img_cart" src="images/page/cart.gif" />
+			</a>
+			
+			<img align="middle" src="images/page/separator.gif" />
+			
+			<a href="">Order List</a>
+			    
+			<img align="middle" src="images/page/separator.gif" />
+			
+			<a href="logout.action">Sign Out</a>
+	
+			<a href="loginForm.action">Sign In</a>
+			  
 			<img align="middle" src="images/page/separator.gif" />
 			<a href="../help.html">Help</a>
 		</div>
@@ -58,13 +58,13 @@
 	</div>
 
 	<div id="QuickLinks" style="color: blue;font-size: 20px;font-weight: bold">
-		<a href="goods_list.action?item=bag">bag</a>
+		<a href="goods_list.action?item=BA">bag</a>
 		<img src="images/page/separator.gif" /> 
-		<a href="goods_list.action?item=hat">hat</a>
+		<a href="goods_list.action?item=HA">hat</a>
 		<img src="images/page/separator.gif" /> 
-		<a href="goods_list.action?item=jewelry">jewelry</a>
+		<a href="goods_list.action?item=JN">jewelry</a>
 		<img src="images/page/separator.gif" /> 
-		<a href="goods_list.action?item=shoes">shoes</a>
+		<a href="goods_list.action?item=FW">shoes</a>
 		<img src="images/page/separator.gif" /> 
 		<a href="goods_list.action?item=others">others</a>
 	</div>

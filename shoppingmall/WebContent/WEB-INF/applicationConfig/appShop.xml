@@ -13,12 +13,10 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">
 		
 		<!-- DB Configuration -->
-		
+		<bean id="goodsDao" class="user.dao.GoodsDaoImpl" />
 		
 		<!-- ViewResolver Configuration (Default : InternalViewResolver)-->
-		
 		<!-- I am going to use two ViewResolver (order1 : ResourceBundleViewResolver(to get files), order2 : InternalResourceViewResolver) -->
-		
 		<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/your directory -->
 		<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 			<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />

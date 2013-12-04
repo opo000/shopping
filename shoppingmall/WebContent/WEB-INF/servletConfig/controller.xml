@@ -13,5 +13,18 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">
 
 		<bean class="user.controller.IndexController" />
+		
+		<bean class="user.controller.GoodsListController">
+		    <property name="shop" ref="shop"></property>
+		</bean>
+		
+		<bean id="goodsCatalog" class="user.domain.GoodsCatalogImpl">
+		    <property name="goodsDao" ref="goodsDao" />
+		</bean>
+	
 
+		<bean id="shop" class="user.domain.ShopImpl">
+		    <property name="goodsCatalog" ref="goodsCatalog" />
+		</bean>
+		
 </beans>

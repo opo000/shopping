@@ -18,6 +18,7 @@
             <property name="mappings">
                 <props>
                     <prop key="/index.action">user.controller.IndexController</prop>
+                    <prop key="/goods_list.action">user.controller.GoodsListController</prop>
                 </props>
             </property>
         </bean>
