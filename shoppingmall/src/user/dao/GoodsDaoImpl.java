@@ -2,14 +2,17 @@ package user.dao;
 
 import java.util.List;
 
-import db.mybatis.GoodsManager;
-import user.dto.GoodsDto;
+import org.springframework.stereotype.Component;
 
+import user.dto.GoodsDto;
+import db.mybatis.GoodsManager;
+
+@Component("goodsDao")
 public class GoodsDaoImpl implements GoodsDao{
 
 	@Override
-	public List<GoodsDto> getSelectedList(String item) {
+	public List<GoodsDto> getSelectedList(List itemList) {
 		// TODO Auto-generated method stub
-		return GoodsManager.getSelectedList(item);
+		return GoodsManager.getSelectedList(itemList);
 	}
 }

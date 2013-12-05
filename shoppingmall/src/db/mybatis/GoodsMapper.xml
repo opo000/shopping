@@ -4,8 +4,12 @@
 
 <mapper namespace="db.mybatis.GoodsMapper">
 
-    <select id="getSelectedList" parameterType="String" resultType="GoodsDto">
-        SELECT * FROM tblGoods WHERE g_part = #{item}
+    <select id="getSelectedList" resultType="GoodsDto">
+        SELECT * FROM tblGoods
+         WHERE g_part in 
+         <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+             #{item}
+         </foreach>
     </select>
 
 </mapper>

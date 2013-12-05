@@ -17,8 +17,8 @@
             <property name="alwaysUseFullPath" value="true"></property>
             <property name="mappings">
                 <props>
-                    <prop key="/index.action">user.controller.IndexController</prop>
-                    <prop key="/goods_list.action">user.controller.GoodsListController</prop>
+                    <prop key="/index.action">indexController</prop>
+                    <prop key="/goods_list.action">goodsListController</prop>
                 </props>
             </property>
         </bean>

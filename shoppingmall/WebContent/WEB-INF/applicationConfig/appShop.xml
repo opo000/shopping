@@ -12,8 +12,14 @@
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">
 		
+		<context:component-scan base-package="user.dao"></context:component-scan>
+		
 		<!-- DB Configuration -->
-		<bean id="goodsDao" class="user.dao.GoodsDaoImpl" />
+		<!-- bean id="goodsDao" class="user.dao.GoodsDaoImpl" /-->
+		
+		<!-- ResourceBundleViewResolver -->
+		<bean class="org.springframework.web.servlet.view.ResourceBundleViewResolver" p:basename="properties/resourceBundleViewResolver" p:order="1"/>
+		
 		
 		<!-- ViewResolver Configuration (Default : InternalViewResolver)-->
 		<!-- I am going to use two ViewResolver (order1 : ResourceBundleViewResolver(to get files), order2 : InternalResourceViewResolver) -->
@@ -22,6 +28,7 @@
 			<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
 			<property name="prefix" value="/WEB-INF/jsp/" />
 			<property name="suffix" value=".jsp" />			
+			<property name="order" value="2" />
 		</bean>		
 
 </beans>

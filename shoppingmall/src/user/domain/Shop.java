@@ -6,6 +6,6 @@ import user.dto.GoodsDto;
 
 public interface Shop {
 
-	public List<GoodsDto> getSelectedList(String item);
+	public List<GoodsDto> getSelectedList(List itemList);
 	
 }

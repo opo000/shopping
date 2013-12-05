@@ -58,13 +58,13 @@
 	</div>
 
 	<div id="QuickLinks" style="color: blue;font-size: 20px;font-weight: bold">
-		<a href="goods_list.action?item=BA">bag</a>
+		<a href="goods_list.action?item=bag">bag</a>
 		<img src="images/page/separator.gif" /> 
-		<a href="goods_list.action?item=HA">hat</a>
+		<a href="goods_list.action?item=hat">hat</a>
 		<img src="images/page/separator.gif" /> 
-		<a href="goods_list.action?item=JN">jewelry</a>
+		<a href="goods_list.action?item=jewelry">jewelry</a>
 		<img src="images/page/separator.gif" /> 
-		<a href="goods_list.action?item=FW">shoes</a>
+		<a href="goods_list.action?item=shoes">shoes</a>
 		<img src="images/page/separator.gif" /> 
 		<a href="goods_list.action?item=others">others</a>
 	</div>

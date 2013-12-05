@@ -25,11 +25,13 @@ public class GoodsManager {
 		}
 	}
 	
-	public static List<GoodsDto> getSelectedList(String item){
+	public static List<GoodsDto> getSelectedList(List itemList){
+		
+		List list = itemList;
 		
 		List<GoodsDto> result = null;
 		SqlSession session = sqlMapper.openSession();
-		result = session.selectList("getSelectedList", item);
+		result = session.selectList("getSelectedList", list);
 		return result;
 	}
 }
