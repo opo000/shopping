@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="db.mybatis.GoodsMapper">
+
+    <select id="chkId" parameterType="String" resultType="String">
+        SELECT u_id FROM tblUser
+         WHERE u_id = #{id}
+    </select>
+    
+    <insert id="registerUser" parameterType="userDto">
+        INSERT INTO tblUser(u_id, u_name, u_pw, u_addr, u_email, u_job, u_tel, u_birth) 
+        values (#{u_id}, #{u_name}, #{u_pw}, #{u_addr}, #{u_email}, #{u_job}, #{u_tel}, #{u_birth}) 
+    </insert>
+
+</mapper>

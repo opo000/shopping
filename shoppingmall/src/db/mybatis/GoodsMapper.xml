@@ -11,5 +11,10 @@
              #{item}
          </foreach>
     </select>
+    
+    <select id="findItemByCode" parameterType="String" resultType="GoodsDto">
+        SELECT * FROM tblGoods
+         WHERE g_code = #{code}
+    </select>
 
 </mapper>

@@ -6,6 +6,7 @@
    <h2></h2>
    <table>
        <c:forEach var="goods" items="${result}">
+           <a href="goods_detail.action?code=${goods.g_code}">
            <c:choose>
                <c:when test="${goods.g_part == 'BA'}">
                    <img src="images/goods/bag/${goods.g_image1}.jpg" style="width:100px;height:100px;" alt="${goods.g_name}" />
@@ -25,9 +26,9 @@
                
                <c:when test="${goods.g_part eq 'SB' || goods.g_part eq 'SH' ||goods.g_part eq 'SO'}">
                    <img src="images/goods/others/${goods.g_image1}.jpg" style="width:100px;height:100px;" alt="${goods.g_name}" />
-               </c:when>               
-               
+               </c:when> 
 	       </c:choose>
+	       </a>
        </c:forEach>
    </table>
 </div>

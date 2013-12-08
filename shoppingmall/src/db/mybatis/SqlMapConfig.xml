@@ -7,6 +7,7 @@
      
      <typeAliases>
          <typeAlias alias="GoodsDto" type="user.dto.GoodsDto" />
+         <typeAlias alias="UserDto" type="user.dto.UserDto" />
      </typeAliases>
      
      <environments default="development">
@@ -23,6 +24,7 @@
      
      <mappers>
          <mapper resource="db/mybatis/GoodsMapper.xml" />
+         <mapper resource="db/mybatis/UserMapper.xml" />
      </mappers>
      
 </configuration>

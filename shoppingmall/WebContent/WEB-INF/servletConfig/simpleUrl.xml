@@ -17,8 +17,19 @@
             <property name="alwaysUseFullPath" value="true"></property>
             <property name="mappings">
                 <props>
+					<!-- First page -->
                     <prop key="/index.action">indexController</prop>
-                    <prop key="/goods_list.action">goodsListController</prop>
+                    
+                    <!-- Goods -->
+                    <prop key="/goods_list.action">goodsController</prop>
+                    <prop key="/goods_detail.action">goodsController</prop>
+                    
+                    <!-- Register / login / logout -->
+                    <prop key="/loginForm.action">logInOutController</prop>
+                    <prop key="/registerForm.action">logInOutController</prop>
+                    <prop key="/idCheckForm.action">logInOutController</prop>
+                    
+                    <prop key="/registerProcess.action">logInOutController</prop>
                 </props>
             </property>
         </bean>

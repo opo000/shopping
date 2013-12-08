@@ -6,5 +6,5 @@ import user.dto.GoodsDto;
 public interface GoodsDao {
 	
 	public List<GoodsDto> getSelectedList(List itemList);
-
+    public GoodsDto findItemByCode(String code);
 }

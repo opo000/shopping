@@ -15,4 +15,10 @@ public class GoodsDaoImpl implements GoodsDao{
 		// TODO Auto-generated method stub
 		return GoodsManager.getSelectedList(itemList);
 	}
+
+	@Override
+	public GoodsDto findItemByCode(String code) {
+		// TODO Auto-generated method stub
+		return GoodsManager.findItemByCode(code);
+	}
 }

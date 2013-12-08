@@ -1,7 +1,9 @@
 package user.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -9,11 +11,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import user.domain.Shop;
+import user.dto.GoodsDto;
+import user.model.Shop;
 
-@Component("goodsListController")
+@Component("goodsController")
 @Controller
-public class GoodsListController {
+public class GoodsController {
 	
 	private Shop shop;
 	
@@ -33,6 +36,22 @@ public class GoodsListController {
 		mav.addObject("result", result);
 		
 		return mav;
+	}
+	
+	@RequestMapping("/goods_detail.action")
+	public ModelAndView goods_detail(String code){
+		
+		GoodsDto result = shop.findItemByCode(code);
+		
+		Map<String, GoodsDto> map = new HashMap<String, GoodsDto>();
+		
+		map.put("result", result);
+		
+//		ModelAndView mav = new ModelAndView();
+//		mav.setViewName("goods_detail");
+//		mav.addObject("result", result);
+		
+		return new ModelAndView("goods_detail", map);
 	}
 	
 	protected List getPart(String item){
