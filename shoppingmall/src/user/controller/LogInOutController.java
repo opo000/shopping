@@ -11,6 +11,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.DataRetrievalFailureException;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.BindingResult;
@@ -22,9 +23,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.support.RequestContext;
 
 import user.dto.UserDto;
 import user.model.Shop;
+import util.RegisterValidator;
 import util.UserValidator;
 
 @Component("logInOutController")
@@ -106,9 +109,18 @@ public class LogInOutController {
 	
 	
 	@RequestMapping(value="/registerProcess.action", method=RequestMethod.POST)
-	public String formProcess(UserDto user){
+	public String formProcess(@Valid UserDto user, BindingResult binding){
 		
-		shop.registerUser(user);
+		if(binding.hasErrors()){
+			return "registerForm";
+		}
+		
+		try{
+			shop.registerUser(user);	
+		}catch(DataIntegrityViolationException err){
+			binding.reject("duplicate");
+			return "registerForm";
+		}
 		
 		return "registerSuccess";
 	}
@@ -125,12 +137,15 @@ public class LogInOutController {
 		dformat.setLenient(false);
 		
 		binder.registerCustomEditor(Date.class, "u_birth", new CustomDateEditor(dformat, false));
+		
+		binder.setValidator(new RegisterValidator());
+		
 	}
 	
 	@ModelAttribute("JobList")
 	protected Map referenceData(){
 		
-		String[] job = {"회사원","연구전문직","교수학생","일반자영업","공무원","의료인","회사원","법조인","종교.언론/예술인","농/축/수산/광업인","주부","무직","기타"};
+		String[] job = {"A","B","C","D","E","F","G","H","I","J","K","L","M"};
 		
 		Map mapJob = new HashMap();
 		
@@ -139,6 +154,19 @@ public class LogInOutController {
 		}
 		
 		return mapJob;
+	}
+	
+	@ModelAttribute("userDto")
+	protected Object formBacking(HttpServletRequest req){
+		
+		RequestContext ctx = new RequestContext(req);
+		UserDto userDto = new UserDto();
+		
+		userDto.setU_id(ctx.getMessage("userDto.u_id.default"));
+		userDto.setU_id(ctx.getMessage("userDto.u_name.default"));
+		
+		return userDto;
+		
 	}
 	
 }

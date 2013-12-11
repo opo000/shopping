@@ -35,5 +35,44 @@
                     
                 </props>
             </property>
+            
+            <!-- Call Interceptor (option1)--> 
+            <!-- ref bean(전역) and ref local (local) -->
+            <!-- 처음 시작하자마자 로그인 페이지로 접속. 로그인이 성공했을 때만 메인 페이지 출력 -->
+            <!-- property name="interceptors">
+                <list>
+                                    
+                    <ref bean = "loginInterceptor" />
+                </list>
+            </property-->
         </bean>
+        
+        <!--  option2
+		<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		    <property name="mappings">
+		        <props>
+		            <prop key="/goods_detail.action">goodsController</prop>
+		        </props>
+		    </property>
+			
+			<property name="interceptors">
+                <list>
+                    <ref bean = "loginInterceptor" />
+                </list>
+            </property>
+            		    
+		</bean>
+ 		-->
+ 		
+ 		<!-- option3 -->
+ 		<mvc:interceptors>
+ 		    <mvc:interceptor>
+ 		        <mvc:mapping path="/goods_detail.action" />   <!-- <mvc:mapping path="/**/*"/> <== 전부다 잡는다 option1과 동일 -->
+ 		        <bean class="util.LoginInterceptor" />
+ 		    </mvc:interceptor>
+ 		</mvc:interceptors>
+
+        <!-- Login Interceptor -->
+        <bean id="loginInterceptor" class="util.LoginInterceptor" />
+        
 </beans>

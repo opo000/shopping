@@ -9,6 +9,7 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.DataRetrievalFailureException;
 import org.springframework.web.util.WebUtils;
 
@@ -55,9 +56,16 @@ public class UserManager {
 	}
 	
 	public static void registerUser(UserDto user){
-		SqlSession session  = sqlMapper.openSession();
-		session.insert("registerUser", user);
-		session.commit();
+		
+		try{
+			SqlSession session  = sqlMapper.openSession();
+			session.insert("registerUser", user);
+			session.commit();			
+		}catch(Exception e){
+			throw new DataIntegrityViolationException(null);
+		}
+		
+
 	}
 	
 }

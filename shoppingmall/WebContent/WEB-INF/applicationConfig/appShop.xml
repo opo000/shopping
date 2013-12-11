@@ -36,6 +36,7 @@
 		    <property name="basenames">
 		        <list>
 		            <value>properties/msg_auth</value>
+		            <value>properties/register</value>
 		        </list>
 		    </property>
 		</bean>		
