@@ -34,22 +34,33 @@
 	<div id="Menu">
 		<div id="MenuContent">
 			
-			<a href="">
-				<img align="middle" name="img_cart" src="images/page/cart.gif" />
-			</a>
+			<c:choose>
 			
-			<img align="middle" src="images/page/separator.gif" />
+			     <c:when test="${USER_KEY.u_id != null && USER_KEY.u_id != ''}">
+
+					<a href="">
+						<img align="middle" name="img_cart" src="images/page/cart.gif" />
+					</a>
+							
+					<img align="middle" src="images/page/separator.gif" />
+							
+					<a href="">Order List</a>
+							    
+					<img align="middle" src="images/page/separator.gif" />
+							
+					<a href="logout.action">Sign Out</a>
+				</c:when>	
+			     <c:when test="${USER_KEY.u_id == null || USER_KEY.u_id == ''}">					
+					<a href="loginForm.action">Sign In</a>
+
+			     </c:when>
+			</c:choose>     
+			     
+			      
+				<img align="middle" src="images/page/separator.gif" />
+				<a href="../help.html">Help</a>
 			
-			<a href="">Order List</a>
-			    
-			<img align="middle" src="images/page/separator.gif" />
 			
-			<a href="logout.action">Sign Out</a>
-	
-			<a href="loginForm.action">Sign In</a>
-			  
-			<img align="middle" src="images/page/separator.gif" />
-			<a href="../help.html">Help</a>
 		</div>
 	</div>
 

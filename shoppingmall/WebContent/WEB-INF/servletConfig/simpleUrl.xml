@@ -17,6 +17,7 @@
             <property name="alwaysUseFullPath" value="true"></property>
             <property name="mappings">
                 <props>
+                
 					<!-- First page -->
                     <prop key="/index.action">indexController</prop>
                     
@@ -28,8 +29,10 @@
                     <prop key="/loginForm.action">logInOutController</prop>
                     <prop key="/registerForm.action">logInOutController</prop>
                     <prop key="/idCheckForm.action">logInOutController</prop>
-                    
                     <prop key="/registerProcess.action">logInOutController</prop>
+                    <prop key="/loginProcess.action">logInOutController</prop>
+                    <prop key="/logout.action">logInOutController</prop>
+                    
                 </props>
             </property>
         </bean>

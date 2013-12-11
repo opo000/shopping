@@ -1,5 +1,7 @@
 package user.model;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -27,4 +29,12 @@ public class UserCatalogImpl implements UserCatalog {
 		// TODO Auto-generated method stub
 		userDao.registerUser(user);
 	}
+
+	@Override
+	public UserDto loginProcess(UserDto user, HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		return userDao.loginProcess(user, request);
+	}
+	
+	
 }

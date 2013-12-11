@@ -105,7 +105,7 @@
 				<tr>  
 					<td>직업</td>
 					<td>
-						<select name="u_job">
+						<!-- select name="u_job">
 							<option value="">선택하세요.
 							<option value="회사원">회사원
 							<option value="연구전문직">연구전문직
@@ -119,13 +119,13 @@
 							<option value="주부">주부
 							<option value="무직">무직
 							<option value="기타">기타
-						</select>
+						</select-->
 						
-						<!-- select name="u_job">
+						<select name="u_job">
 							<c:forEach var="v" items="${JobList}">
 								<option value="${v.key}" <c:if test="${v.key == userDto.u_job}">selected</c:if>>${v.value}</option>
 							</c:forEach>
-						</select-->
+						</select>
 						<span style="color:red"><form:errors path="userDto.u_job"/></span>
 					</td>
 				</tr>

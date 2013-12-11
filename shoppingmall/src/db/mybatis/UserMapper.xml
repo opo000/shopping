@@ -14,4 +14,10 @@
         values (#{u_id}, #{u_name}, #{u_pw}, #{u_addr}, #{u_email}, #{u_job}, #{u_tel}, #{u_birth}) 
     </insert>
 
+    <select id="loginProcess" parameterType="userDto" resultType="userDto">
+        SELECT * FROM tblUser
+         WHERE u_id = #{u_id}
+           AND u_pw = #{u_pw}
+    </select>
+
 </mapper>
